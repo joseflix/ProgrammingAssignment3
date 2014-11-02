@@ -10,6 +10,10 @@ rankhospital <- function ( state, outcome, num = "best" ) {
 		print("not a valid rank provided")
 	} 
 	
+	## Read outcome data
+	
+	data <- read.csv("outcome-of-care-measures.csv", colClasses="character") ## loading data
+
 	## Check that state and outcome are valid
 
 	states <- unique(data[, "State"])
@@ -24,11 +28,7 @@ rankhospital <- function ( state, outcome, num = "best" ) {
     if (! outcome %in% outcomes) {
 	   stop("invalid outcome")
     }
-    
-	## Read outcome data
-	
-	data <- read.csv("outcome-of-care-measures.csv", colClasses="character") ## loading data
-	
+    	
     ## Return hospital name in that state with lowest 30-day death rate
     
     if (outcome == "heart attack") {
