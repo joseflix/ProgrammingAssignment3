@@ -6,7 +6,7 @@ rankall <- function ( outcome, num = "best"){
 		num <- "1" 
 	} else if (num == "worst") { 
 		num <- "-1" 
-	} 
+	}	 
 	suppressWarnings(num <- as.numeric(num))
 	if (is.na(num)) { 
 		print("not a valid rank provided")
@@ -24,7 +24,7 @@ rankall <- function ( outcome, num = "best"){
 
 	data <- read.csv("outcome-of-care-measures.csv", colClasses="character") ## loading data
 
-	## Return hospital name in that state with lowest 30-day death rate
+	## Return a data frame with the hospital names and the	## (abbreviated) state name
 
 	if (outcome == "heart attack") {
 		deaths <- "Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack"
